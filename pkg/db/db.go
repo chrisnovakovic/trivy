@@ -131,12 +131,12 @@ func (c *Client) validate(meta metadata.Metadata) error {
 
 func (c *Client) isNewDB(meta metadata.Metadata) bool {
 	if c.clock.Now().Before(meta.NextUpdate) {
-		log.Logger.Debug("DB update was skipped because the local DB is the latest")
+		log.Logger.Info("DB update was skipped because the local DB is the latest")
 		return true
 	}
 
 	if c.clock.Now().Before(meta.DownloadedAt.Add(time.Hour)) {
-		log.Logger.Debug("DB update was skipped because the local DB was downloaded during the last hour")
+		log.Logger.Info("DB update was skipped because the local DB was downloaded during the last hour")
 		return true
 	}
 	return false

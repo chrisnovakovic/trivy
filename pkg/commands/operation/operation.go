@@ -142,7 +142,7 @@ func showDBInfo(cacheDir string) error {
 	if err != nil {
 		return xerrors.Errorf("something wrong with DB: %w", err)
 	}
-	log.Logger.Debugf("DB Schema: %d, UpdatedAt: %s, NextUpdate: %s, DownloadedAt: %s",
+	log.Logger.Infof("DB Schema: %d, UpdatedAt: %s, NextUpdate: %s, DownloadedAt: %s",
 		meta.Version, meta.UpdatedAt, meta.NextUpdate, meta.DownloadedAt)
 	return nil
 }
